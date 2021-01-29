@@ -1,0 +1,60 @@
+<div class="mainBody">
+
+<div class="header">
+    <h2> Idea Board</h2>
+</div>
+<div class="container">
+    <div class="list-wrapper">
+        <div class="addButton">
+            <div>Tilte A</div>
+            <button (click)="addCard('A')">+</button>
+        </div>
+        <div class="list">
+            <ng-container *ngIf="(_state$ | async) as data" class="app-card" >
+
+                <div *ngFor="let card of data.card; trackBy:trackByCardId">
+                    <ng-container *ngIf="isTypeValid(card.type,0)">
+                        <app-card [card]="card" ></app-card>
+                    </ng-container>
+                </div>
+
+            </ng-container>
+        </div>
+    </div>
+    <div class="list-wrapper">
+        <div class="addButton">
+            <div>Tilte B</div>
+            <button (click)="addCard('B')">+</button>
+        </div>
+        <div class="list">
+            <ng-container *ngIf="(_state$ | async) as data">
+
+                <div *ngFor="let card of data.card; trackBy:trackByCardId">
+                    <ng-container *ngIf="isTypeValid(card.type,1)">
+                        <app-card [card]="card"></app-card>
+                    </ng-container>
+                </div>
+
+            </ng-container>
+        </div>
+    </div>
+    <div class="list-wrapper">
+        <div class="addButton">
+            <div>Tilte C</div>
+            <button (click)="addCard('C')">+</button>
+        </div>
+        <div class="list">
+            <ng-container *ngIf="(_state$ | async) as data">
+
+                <div *ngFor="let card of data.card; trackBy:trackByCardId">
+                    <ng-container *ngIf="isTypeValid(card.type,2)">
+                        <app-card [card]="card"></app-card>
+                    </ng-container>
+                </div>
+
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+</div>
